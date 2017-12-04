@@ -1,0 +1,37 @@
+{
+  "name": "dockerimagebuilder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://st001:tpfla0516!@10.0.10.250:8000/st001/dockerImageBuilder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "config": "^1.28.1",
+    "dockerode": "^2.5.3",
+    "express": "^4.16.2",
+    "ioredis": "^3.2.1",
+    "js-yaml": "^3.10.0",
+    "kubernetes-client": "^3.17.1",
+    "kue": "^0.11.6",
+    "node-cmd": "^3.0.0",
+    "request": "^2.83.0",
+    "supertest": "^3.0.0",
+    "tape": "^4.8.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1",
+    "should": "^13.1.3"
+  }
+}

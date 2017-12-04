@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json; charset=utf-8" -d '{"project":"https://github.com/openshift/ruby-hello-world", "builderImage":"centos/ruby-22-centos7", "projectName":"10.0.50.31:5000/buildtest2"}' 'http://127.0.0.1:3000/builder/build'

@@ -1,0 +1,13 @@
+dbConfig:
+  redis:
+    host: 10.0.50.11
+    port: 6379
+  remoteDocker:
+    host: 10.0.50.11
+    port: 2375
+  dockerRegistry:
+    host: 10.0.50.31
+    port: 5000
+  kubernetes:
+    host: 10.0.50.31
+    port: 6443
