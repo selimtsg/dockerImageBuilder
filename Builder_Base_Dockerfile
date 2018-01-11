@@ -1,0 +1,11 @@
+FROM golang:latest
+
+RUN go get github.com/openshift/source-to-image/cmd/s2i
+
+RUN apt-get update -y && apt-get install -y nginx && apt-get clean && rm -rf /var/lib/apt/lists
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
+RUN apt-get update -y && apt-get install nodejs && apt-get clean && rm -rf /var/lib/apt/lists
+
+#Requirements : GO 1.7.1, Node.JS 9.x, Redis, S2I

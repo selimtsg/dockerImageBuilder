@@ -1,13 +1,16 @@
 dbConfig:
   redis:
-    host: 10.0.50.11
+    host: 10.0.50.25
     port: 6379
   remoteDocker:
-    host: 10.0.50.11
+    host: 10.0.50.25
     port: 2375
   dockerRegistry:
-    host: 10.0.50.31
-    port: 5000
+    host: registry.auto.go.kr
+    port: 31365
   kubernetes:
     host: 10.0.50.31
     port: 6443
+token:
+  admin:
+    value: 1dHUMcijIowiXpwJqPsbRZ8MUJxJzTut

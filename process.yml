@@ -1,0 +1,6 @@
+apps:
+  - script   : 'build/app.js'
+    name     : 'DockerImageBuilder'
+    exec_mode: 'cluster'
+    instances: 4
+    watch : true

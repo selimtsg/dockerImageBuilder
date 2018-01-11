@@ -29,12 +29,27 @@ spec:
       labels:
         app: imagebuilder
     spec:
+      hostAliases:
+      - ip: "10.0.50.31"
+        hostnames:
+        - "registry.auto.go.kr"
+      nodeSelector:
+        role: worker
       containers:
-      - image: 10.0.50.31:5000/dockerimagebuilder
+      - image: registry.auto.go.kr:31365/dockerimagebuilder
         name: imagebuilder
         ports:
         - containerPort: 3000
           name: imagebuilder
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/src/app/dockerImageBuilder/config
+      volumes:
+      - name: config-volume
+        configMap:
+        # Provide the name of the ConfigMap containing the files you want
+        # to add to the container
+          name: builder-config  
 
 ---
 apiVersion: extensions/v1beta1

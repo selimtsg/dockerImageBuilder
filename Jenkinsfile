@@ -21,7 +21,7 @@ node {
          * docker build on the command line */
          docker.withServer('tcp://10.0.50.11:2375') {
 
-                app = docker.build("10.0.50.31:5000/dockerimagebuilder",'--no-cache .')
+                app = docker.build("registry.auto.go.kr:31365/dockerimagebuilder",'--no-cache .')
         }
     }
 
@@ -37,7 +37,7 @@ node {
 
      docker.withServer('tcp://10.0.50.11:2375') {
      
-         docker.withRegistry('http://10.0.50.31:5000') {
+         docker.withRegistry('http://registry.auto.go.kr:31365') {
 
             //app.push("docker${env.BUILD_NUMBER}")
 
@@ -50,9 +50,24 @@ node {
     }
    
     stage ("Deploy DockerImageBuilder"){
+        docker.withServer('tcp://10.0.50.31:2375'){
+            try {
+            sh "docker stop imagebuilder"
+            sh "docker rm imagebuilder"
+            sh "docker pull registry.auto.go.kr:31365/dockerimagebuilder"
+                } catch (Exception _) {
+                    echo "no container to stop"
+                }
+            docker.image('registry.auto.go.kr:31365/dockerimagebuilder').run('--name=imagebuilder -it -p 3000:3000 --net=host --restart=always')
+            
+
+        }
         
+        sh("kubectl -s http://10.0.50.31:8080 delete configmap builder-config")   
+        sh("kubectl -s http://10.0.50.31:8080 create configmap builder-config --from-file=config/default.yaml")        
         sh("kubectl -s http://10.0.50.31:8080 delete -f deployments/builderDeploy.yaml")        
         sh("kubectl -s http://10.0.50.31:8080 apply -f deployments/builderDeploy.yaml")        
+         
         
     }
    /*  

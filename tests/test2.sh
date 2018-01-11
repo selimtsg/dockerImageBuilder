@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json; charset=utf-8" -H 'Authorization: Bearer MWRIVU1jaWpJb3dpWHB3SnFQc2JSWjhNVUp4SnpUdXQK' -H 'namespace: kube-system' http://127.0.0.1:3000/v1/builder/build

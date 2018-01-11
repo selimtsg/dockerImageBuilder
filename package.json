@@ -14,8 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/logging-winston": "^0.7.0",
     "async": "^2.6.0",
     "body-parser": "^1.18.2",
+    "cluster": "^0.7.7",
+    "compression": "^1.7.1",
     "config": "^1.28.1",
     "dockerode": "^2.5.3",
     "express": "^4.16.2",
@@ -23,14 +26,18 @@
     "js-yaml": "^3.10.0",
     "kubernetes-client": "^3.17.1",
     "kue": "^0.11.6",
+    "net": "^1.0.2",
     "node-cmd": "^3.0.0",
     "request": "^2.83.0",
     "supertest": "^3.0.0",
-    "tape": "^4.8.0"
+    "tape": "^4.8.0",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify-es": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "mocha": "^4.0.1",
     "should": "^13.1.3"
   }
